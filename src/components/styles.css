@@ -1,0 +1,62 @@
+.heading{
+    text-align:center;
+    font-size:80px
+}
+
+.channel-container{
+    margin-top:10px;
+    width:50%;
+}
+
+.channel-heading{
+    font-size:50px
+}
+
+.video-heading{
+    margin-bottom:50px;
+    margin-left:10%;
+    font-size:50px
+}
+
+.channel-image{
+    width:500px;
+    height:300px
+}
+
+.button-container{
+    position:absolute;
+    bottom:0
+}
+
+.button-video{
+    font-size:25px;
+    margin-right:5px;
+    background-color:#FFFFFF;
+    border:1px solid #222222;
+    border-radius:8px
+}
+
+.comment{
+    height:65px;
+    background-color:grey;
+    border-color:black
+}
+
+.comment-video{
+    font-size:25px;
+    margin-right:5px;
+    background-color:#FFFFFF;
+    border:1px solid #222222;
+    border-radius:8px
+}
+
+.comment-button-container{
+    position:absolute;
+    top:0;
+    right:0
+}
+.page-container{
+    position:absolute;
+    bottom:0;
+    margin-left:42%
+}

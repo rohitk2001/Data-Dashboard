@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import Video from './video';
+import Pagination from './paginationVideo'
 const apiKey = "AIzaSyAdaubdD3jJiYw82FouvAII4DRruqNNduM";
 const apiUrl = "https://www.googleapis.com/youtube/v3";
 
@@ -8,6 +9,11 @@ let videoids = [];
 
 const VideoDetail=(props)=>{
     const [vid,setVid] = useState([]);
+
+    //Pagination
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(2);
+
     useEffect(() => { 
         async function requestVideo(){
             for(const id of videoids){
@@ -57,19 +63,36 @@ const VideoDetail=(props)=>{
         requestVideoPlaylist(); 
     },[props.id])    
 
+    // Get current posts
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = vid.slice(indexOfFirstPost, indexOfLastPost);
+
+    // Change page
+    const paginate = pageNumber => setCurrentPage(pageNumber);
+
     return(
-        <div className="four column row">
-            {vid.map((video)=>{
-                return(
-                    <div>
-                        <Video video={video}/>
-                    </div>
-                )
-            })} 
+        <div>
+            <div className="four column row">
+                {currentPosts.map((video)=>{
+                    return(
+                        <div>
+                            <Video video={video}/>
+                        </div>
+                    )
+                })} 
+            </div>
+
+            <Pagination
+                postsPerPage={postsPerPage}
+                totalPosts={vid.length}
+                paginate={paginate}
+            />
         </div>
     )
 }
 
 export default VideoDetail;
+
 
 

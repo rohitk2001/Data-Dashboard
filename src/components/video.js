@@ -1,20 +1,22 @@
 import React,{useState} from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
-
+import Pagination from './paginationComment'
+import './styles.css'
 const apiKey = "AIzaSyAdaubdD3jJiYw82FouvAII4DRruqNNduM";
 
 const Video=(props)=>{
     const [vid,setVid] = useState([]);
     const [modelIsOpen,setModalIsOpen] = useState(false);
+    //Pagination
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(1);
     async function requestComment(id){
             const url1 = `https://www.googleapis.com/youtube/v3/commentThreads?key=${apiKey}&textFormat=plainText&part=snippet&videoId=${id}`;//TOP LEVEL COMMENT
             await axios.get(url1)
             .then(response2=>{
                 const comment = response2.data.items;
                 //Prints all comments of video
-                console.log("Comment Data:")
-                console.log(response2);
                 let commentdata = [];
                 comment.forEach((com) => {
                     let data = {
@@ -29,6 +31,13 @@ const Video=(props)=>{
                 console.log(err);
             })   
     } 
+    // Get current posts
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = vid.slice(indexOfFirstPost, indexOfLastPost);
+
+    // Change page
+    const paginate = pageNumber => setCurrentPage(pageNumber);
 
     return (
         <div>
@@ -40,27 +49,36 @@ const Video=(props)=>{
                     <h1 >Likes: {props.video.videolikeCount}</h1>
                     <h1 >Comments: {props.video.videocommentCount}</h1>
                     <br/>
-                    <div style={{position:"absolute",bottom:"0"}}>
-                        <button style={{fontSize:"20px",marginRight:"5px"}}>
-                            <a href={props.video.videolink} target="_blank" rel="noreferrer">Visit</a>
+                    <div className='button-container'>
+                        <button className='button-video'>
+                            <a style={{color:"black"}} href={props.video.videolink} target="_blank" rel="noreferrer">Visit</a>
                         </button>
-                        <button style={{fontSize:"20px"}} onClick={()=>{requestComment(props.video.id);setModalIsOpen(true);}}>View Comments</button>
+                        <button className='button-video' onClick={()=>{requestComment(props.video.id);setModalIsOpen(true);}}>
+                            View Comments
+                        </button>
                     </div>
                     <div>
                         <Modal ariaHideApp={false} isOpen={modelIsOpen} onRequestClose={()=>setModalIsOpen(false)} style={{width:"700px",height:"100px",overlay:{backgroundColor:'grey'},content:{width:"700px",height:"500px",margin:"auto",color:'orange'}}}>
                             <h1>Comments</h1>
-                            {vid.map((v)=>{    
+                            {currentPosts.map((v)=>{    
                                 return (
-                                        <div style={{height:"65px",width:"500px",backgroundColor:"grey",borderColor:"black",top:"25%",right:"25%"}}>
+                                        <div className='comment'>
                                             <h2 style={{margin:"0px"}}>NAME: {v.name}</h2>
                                             <h2 style={{paddingLeft:"10px",margin:"0px"}}>COMMENT: {v.comment}</h2>
                                         </div>
                                 )            
                             })}
-                            <div style={{position:"absolute",bottom:"0"}}>
-                                <button onClick={()=>setModalIsOpen(false)}>Close</button>
+                            <div className='page-container'>
+                                <Pagination
+                                    postsPerPage={postsPerPage}
+                                    totalPosts={vid.length}
+                                    paginate={paginate}
+                                />
+                            </div>
+                            <div className='comment-button-container'>
+                                <button className='button-video' onClick={()=>{setModalIsOpen(false);setVid([])}}>X</button>
                             </div> 
-                        </Modal>    
+                        </Modal>     
                     </div>
                 </div>
                 <div className="eight wide column">

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './styles.css';
 const ChannelDetails=(props)=>{
         return (
             <div className='ui segment'>
@@ -14,7 +14,7 @@ const ChannelDetails=(props)=>{
                         </div>
                     </div>
                     <div className="eight wide column">
-                        <img width="500" height="300" alt="Profile" src={props.thumbnail}/>
+                        <img className='channel-image' alt="Profile" src={props.thumbnail}/>
                     </div>
                 </div> 
             </div>
