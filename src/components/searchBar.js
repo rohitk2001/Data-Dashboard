@@ -1,22 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-class SearchBar extends React.Component{
-    state = {term:'Enter Youtube Channel ID'};
-    onFormSubmit = (event) => {
-        event.preventDefault();
-        this.props.onSubmit(this.state.term);
-    };
-    render(){
-        return (
-            <div className="ui segment" style={{height:"130px"}}>
-                <form onSubmit={this.onFormSubmit} className="ui form">
-                    <div className="field">
-                        <input onClick={()=>{this.setState({term:""})}} style={{fontSize:"30px",margin:"auto",height:"100px"}} type="text" value={this.state.term} onChange={(e)=>this.setState({term:e.target.value})}/>
-                    </div>
-                </form>
-            </div>
-        )
+
+const Search = (props) => {
+  const [term, setTerm] = useState('');
+
+  useEffect(() => {
+    const search = () => {
+        const value = term.toLowerCase();
+        props.data.forEach(video=>{
+            const isVisible = video.videotitle.toLowerCase().includes(value);
+            console.log("Term:" + value + "Video Title:" + video.videotitle.toLowerCase() + "Check:" + isVisible);
+            //video.element.classList.toggle("hide",!isVisible);
+        })
     }
-}
+    search();
+  }, [term]);
 
-export default SearchBar;
+  return (
+    <div className='ui container' style={{marginTop:"10px",width:"70%"}}>
+      <div className="ui form" style={{marginTop:"2%",marginLeft:"7.5%",width:"100%"}}>
+        <div className="field">
+          <label style={{fontSize:"30px"}}>Enter Search Term</label>
+          <input
+            style={{margin:"auto",height:"50px"}}
+            value={term}
+            onChange={(e) => setTerm(e.target.value)}
+            className="input"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Search;

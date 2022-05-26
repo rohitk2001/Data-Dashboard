@@ -11,7 +11,7 @@ const ChannelDetails=(props)=>{
                             <h1>Video Count:{props.videocount}</h1>
                             <h1>Views:{props.viewcount}</h1>
                             <h1>Subscribers:{props.subscribers}</h1>
-                        </div>
+                        </div> 
                     </div>
                     <div className="eight wide column">
                         <img className='channel-image' alt="Profile" src={props.thumbnail}/>

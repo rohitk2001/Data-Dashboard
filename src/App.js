@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import SearchBar from "./components/searchBar";
 import ChannelDetails  from './components/channelDetails';
 import VideoDetail from './components/videoDetails';
 import './components/styles.css'
@@ -8,7 +7,7 @@ import './components/styles.css'
 const apiKey = "AIzaSyBDmqUiT8xHSSYEoQv0WCkOS1AqoN8VA2s";
 const apiUrl = "https://www.googleapis.com/youtube/v3";
 const term = "UCoxIjrCyzbaTnOtZdhwxM7g";
-
+ 
 const App=()=>{
     const [title,setTitle] = useState('NA');
     const [subscribers,setSubscribers] = useState(0);
@@ -44,9 +43,6 @@ const App=()=>{
         return (
             <div>
                 <h1 className='heading'>YOUTUBE DASHBOARD</h1>
-                {/*<div className='ui container' style={{marginTop:"10px",width:"70%"}}>
-                    <SearchBar onSubmit={this.onSearchSubmit}/>
-                </div>*/}
                 <div className='ui container channel-container'>
                     <h1 className='channel-heading'>Channel Details</h1>
                     <ChannelDetails
@@ -58,10 +54,7 @@ const App=()=>{
                         thumbnail={thumbnail}
                     />
                 </div>
-                <h1 className='video-heading'>Video Details</h1>
-                <div className='ui grid'>
-                    <VideoDetail id={playlistId}/>
-                </div>
+                <VideoDetail id={playlistId}/>
             </div>
         )
 }

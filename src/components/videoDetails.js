@@ -5,11 +5,10 @@ import Pagination from './paginationVideo'
 const apiKey = "AIzaSyAdaubdD3jJiYw82FouvAII4DRruqNNduM";
 const apiUrl = "https://www.googleapis.com/youtube/v3";
 
-let videoids = [];
+let videoids = []; 
 
 const VideoDetail=(props)=>{
     const [vid,setVid] = useState([]);
-
     //Pagination
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(2);
@@ -29,6 +28,7 @@ const VideoDetail=(props)=>{
                     const thumbnail = response2.data.items[0].snippet.thumbnails.standard.url;
                     const videoplayer = "https://www.youtube.com/embed/"+ {id};
                     const videolink = `https://www.youtube.com/watch?v=${id}`;
+                    const visible = true;
                     let video = {
                         "id" : videoID,
                         "videotitle" : videotitle,
@@ -38,7 +38,8 @@ const VideoDetail=(props)=>{
                         "videocommentCount" : videocommentCount,
                         "thumbnail":thumbnail,
                         "videoplayer":videoplayer,
-                        "videolink":videolink
+                        "videolink":videolink,
+                        "visible":visible
                     }
                     setVid(prevState => [...prevState, video]);
                 })
@@ -63,16 +64,42 @@ const VideoDetail=(props)=>{
         requestVideoPlaylist(); 
     },[props.id])    
 
-    // Get current posts
-    const indexOfLastPost = currentPage * postsPerPage;
-    const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = vid.slice(indexOfFirstPost, indexOfLastPost);
+    const [term, setTerm] = useState('Enter Video Name');
 
     // Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
+    
+    var searchvideo = [];
+    if(term === "" || term === "Enter Video Name"){
+        searchvideo = vid;
+    }else{searchvideo = vid.filter((video)=>{
+        if(video.videotitle.toLowerCase().includes(term.toLowerCase())){
+            return video;
+        }
+    })}
+
+    // Get current posts
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = searchvideo.slice(indexOfFirstPost, indexOfLastPost);
 
     return(
         <div>
+            <div className='ui container' style={{marginTop:"10px",width:"100%"}}>
+                <div className="ui form" style={{marginLeft:"9%",width:"81.5%"}}>
+                    <div className="field">
+                        <label style={{fontSize:"30px"}}>Video Search</label>
+                        <input
+                            style={{margin:"auto",height:"50px"}}
+                            value={term}
+                            onChange={(e) => setTerm(e.target.value)}
+                            onClick={(e) => setTerm("")}
+                            className="input"
+                        />
+                    </div>
+                </div>
+            </div>
+            <h1 className='video-heading'>Video Details</h1>
             <div className="four column row">
                 {currentPosts.map((video)=>{
                     return(
@@ -85,7 +112,7 @@ const VideoDetail=(props)=>{
 
             <Pagination
                 postsPerPage={postsPerPage}
-                totalPosts={vid.length}
+                totalPosts={searchvideo.length}
                 paginate={paginate}
             />
         </div>

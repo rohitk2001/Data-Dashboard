@@ -38,56 +38,58 @@ const Video=(props)=>{
 
     // Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
-
-    return (
-        <div>
-            <div className="ui grid" style={{borderStyle:"solid",marginLeft:"300px",marginBottom:"20px",width:"1100px",height:"520px"}}>
-                <div className="eight wide column">
-                    <h1 >Title: {props.video.videotitle}</h1>
-                    <h1 >Description: {props.video.videodescription}</h1>
-                    <h1 >Views: {props.video.videoviewCount}</h1>
-                    <h1 >Likes: {props.video.videolikeCount}</h1>
-                    <h1 >Comments: {props.video.videocommentCount}</h1>
-                    <br/>
-                    <div className='button-container'>
-                        <button className='button-video'>
-                            <a style={{color:"black"}} href={props.video.videolink} target="_blank" rel="noreferrer">Visit</a>
-                        </button>
-                        <button className='button-video' onClick={()=>{requestComment(props.video.id);setModalIsOpen(true);}}>
-                            View Comments
-                        </button>
+ 
+    if(props.video.visible === true){
+        return (
+            <div>
+                <div className="ui grid" style={{borderStyle:"solid",marginLeft:"300px",marginBottom:"20px",width:"1100px",height:"520px"}}>
+                    <div className="eight wide column">
+                        <h1 >Title: {props.video.videotitle}</h1>
+                        <h1 >Description: {props.video.videodescription}</h1>
+                        <h1 >Views: {props.video.videoviewCount}</h1>
+                        <h1 >Likes: {props.video.videolikeCount}</h1>
+                        <h1 >Comments: {props.video.videocommentCount}</h1>
+                        <br/>
+                        <div className='button-container'>
+                            <button className='button-video'>
+                                <a style={{color:"black"}} href={props.video.videolink} target="_blank" rel="noreferrer">Visit</a>
+                            </button>
+                            <button className='button-video' onClick={()=>{requestComment(props.video.id);setModalIsOpen(true);}}>
+                                View Comments
+                            </button>
+                        </div>
+                        <div>
+                            <Modal ariaHideApp={false} isOpen={modelIsOpen} onRequestClose={()=>setModalIsOpen(false)} style={{width:"700px",height:"100px",overlay:{backgroundColor:'grey'},content:{width:"700px",height:"500px",margin:"auto",color:'orange'}}}>
+                                <h1>Comments</h1>
+                                {currentPosts.map((v)=>{    
+                                    return (
+                                            <div className='comment'>
+                                                <h2 style={{margin:"0px"}}>NAME: {v.name}</h2>
+                                                <h2 style={{paddingLeft:"10px",margin:"0px"}}>COMMENT: {v.comment}</h2>
+                                            </div>
+                                    )            
+                                })}
+                                <div className='page-container'>
+                                    <Pagination
+                                        postsPerPage={postsPerPage}
+                                        totalPosts={vid.length}
+                                        paginate={paginate}
+                                    />
+                                </div>
+                                <div className='comment-button-container'>
+                                    <button className='button-video' onClick={()=>{setModalIsOpen(false);setVid([])}}>X</button>
+                                </div> 
+                            </Modal>     
+                        </div>
                     </div>
-                    <div>
-                        <Modal ariaHideApp={false} isOpen={modelIsOpen} onRequestClose={()=>setModalIsOpen(false)} style={{width:"700px",height:"100px",overlay:{backgroundColor:'grey'},content:{width:"700px",height:"500px",margin:"auto",color:'orange'}}}>
-                            <h1>Comments</h1>
-                            {currentPosts.map((v)=>{    
-                                return (
-                                        <div className='comment'>
-                                            <h2 style={{margin:"0px"}}>NAME: {v.name}</h2>
-                                            <h2 style={{paddingLeft:"10px",margin:"0px"}}>COMMENT: {v.comment}</h2>
-                                        </div>
-                                )            
-                            })}
-                            <div className='page-container'>
-                                <Pagination
-                                    postsPerPage={postsPerPage}
-                                    totalPosts={vid.length}
-                                    paginate={paginate}
-                                />
-                            </div>
-                            <div className='comment-button-container'>
-                                <button className='button-video' onClick={()=>{setModalIsOpen(false);setVid([])}}>X</button>
-                            </div> 
-                        </Modal>     
+                    <div className="eight wide column">
+                        <img key={props.video.id} width="500" height="200" alt="Thumbnail" src={props.video.thumbnail}/>
+                        <iframe title={props.video.videotitle} width="500" height="200" src={props.video.videoplayer} allow="encrypted-media" allowFullScreen></iframe>
                     </div>
-                </div>
-                <div className="eight wide column">
-                    <img key={props.video.id} width="500" height="200" alt="Thumbnail" src={props.video.thumbnail}/>
-                    <iframe title={props.video.videotitle} width="500" height="200" src={props.video.videoplayer} allow="encrypted-media" allowFullScreen></iframe>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default Video;

@@ -6,9 +6,9 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
   }
-
+ 
   return (
-      <nav style={{marginLeft:"10%",marginTop:"5%"}}>
+      <nav>
         <ul className='justify-content-center pagination pagination-lg'>
             {pageNumbers.map(number => (
             <li key={number} className='page-item'>
