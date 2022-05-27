@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
 import Pagination from './paginationComment'
+import ReactPlayer from 'react-player/youtube'
 import './styles.css'
 const apiKey = "AIzaSyAdaubdD3jJiYw82FouvAII4DRruqNNduM";
 
@@ -16,7 +17,7 @@ const Video=(props)=>{
             await axios.get(url1)
             .then(response2=>{
                 const comment = response2.data.items;
-                //Prints all comments of video
+                //Prints all comments of video 
                 let commentdata = [];
                 comment.forEach((com) => {
                     let data = {
@@ -42,17 +43,18 @@ const Video=(props)=>{
     if(props.video.visible === true){
         return (
             <div>
-                <div className="ui grid" style={{borderStyle:"solid",marginLeft:"300px",marginBottom:"20px",width:"1100px",height:"520px"}}>
-                    <div className="eight wide column">
-                        <h1 >Title: {props.video.videotitle}</h1>
-                        <h1 >Description: {props.video.videodescription}</h1>
-                        <h1 >Views: {props.video.videoviewCount}</h1>
-                        <h1 >Likes: {props.video.videolikeCount}</h1>
-                        <h1 >Comments: {props.video.videocommentCount}</h1>
+                <div className='video-container'>
+                    <div>
+                        <ReactPlayer width="350px" height="200px" controls="true" url={props.video.videolink} />
+                        <p className='video-text'>Title: {props.video.videotitle}</p>
+                        <p className='video-text' >Description: {props.video.videodescription}</p>
+                        <p className='video-text' >Views: {props.video.videoviewCount}</p>
+                        <p className='video-text' >Likes: {props.video.videolikeCount}</p>
+                        <p className='video-text' >Comments: {props.video.videocommentCount}</p>
                         <br/>
                         <div className='button-container'>
                             <button className='button-video'>
-                                <a style={{color:"black"}} href={props.video.videolink} target="_blank" rel="noreferrer">Visit</a>
+                                <a style={{color:"black"}} href={props.video.videolink} target="_blank" rel="noopener noreferrer">Visit</a>
                             </button>
                             <button className='button-video' onClick={()=>{requestComment(props.video.id);setModalIsOpen(true);}}>
                                 View Comments
@@ -81,10 +83,6 @@ const Video=(props)=>{
                                 </div> 
                             </Modal>     
                         </div>
-                    </div>
-                    <div className="eight wide column">
-                        <img key={props.video.id} width="500" height="200" alt="Thumbnail" src={props.video.thumbnail}/>
-                        <iframe title={props.video.videotitle} width="500" height="200" src={props.video.videoplayer} allow="encrypted-media" allowFullScreen></iframe>
                     </div>
                 </div>
             </div>

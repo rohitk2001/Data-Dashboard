@@ -43,7 +43,7 @@ const App=()=>{
         return (
             <div>
                 <h1 className='heading'>YOUTUBE DASHBOARD</h1>
-                <div className='ui container channel-container'>
+                <div style={{width:"40%",height:"50%",margin:"auto"}} className='ui container'>
                     <h1 className='channel-heading'>Channel Details</h1>
                     <ChannelDetails
                         title={title}

@@ -6,11 +6,11 @@ const ChannelDetails=(props)=>{
                 <div className="ui grid">
                     <div className="eight wide column">
                         <div>
-                            <h1>Title:{props.title}</h1>
-                            <h1>Description:{props.description}</h1>
-                            <h1>Video Count:{props.videocount}</h1>
-                            <h1>Views:{props.viewcount}</h1>
-                            <h1>Subscribers:{props.subscribers}</h1>
+                            <h3>Title:{props.title}</h3>
+                            <h3>Description:{props.description}</h3>
+                            <h3>Video Count:{props.videocount}</h3>
+                            <h3>Views:{props.viewcount}</h3>
+                            <h3>Subscribers:{props.subscribers}</h3>
                         </div> 
                     </div>
                     <div className="eight wide column">

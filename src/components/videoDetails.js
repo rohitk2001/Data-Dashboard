@@ -11,7 +11,7 @@ const VideoDetail=(props)=>{
     const [vid,setVid] = useState([]);
     //Pagination
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(2);
+    const [postsPerPage] = useState(3);
 
     useEffect(() => { 
         async function requestVideo(){
@@ -86,28 +86,26 @@ const VideoDetail=(props)=>{
     return(
         <div>
             <div className='ui container' style={{marginTop:"10px",width:"100%"}}>
-                <div className="ui form" style={{marginLeft:"9%",width:"81.5%"}}>
-                    <div className="field">
-                        <label style={{fontSize:"30px"}}>Video Search</label>
+                <div className="ui form" style={{marginLeft:"9%",width:"85%"}}>
+                    <div className="field" style={{marginTop:"50px"}}>
                         <input
-                            style={{margin:"auto",height:"50px"}}
                             value={term}
                             onChange={(e) => setTerm(e.target.value)}
                             onClick={(e) => setTerm("")}
-                            className="input"
+                            className="input searchbar"
                         />
                     </div>
                 </div>
             </div>
             <h1 className='video-heading'>Video Details</h1>
-            <div className="four column row">
+            <div style={{marginLeft:"3.5%"}} className="four column row">
                 {currentPosts.map((video)=>{
                     return(
                         <div>
                             <Video video={video}/>
                         </div>
                     )
-                })} 
+                })}  
             </div>
 
             <Pagination

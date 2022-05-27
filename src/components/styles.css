@@ -1,42 +1,56 @@
 .heading{
     text-align:center;
-    font-size:80px
-}
-
-.channel-container{
-    margin-top:10px;
-    width:50%;
+    font-size:40px
 }
 
 .channel-heading{
-    font-size:50px
+    font-size:20px
+}
+
+.searchbar{
+    font-size:20px;
+    margin:auto;
+    height:40px
+}
+
+.video-container{
+    border-style:solid;
+    margin-left:100px;
+    margin-bottom:20px;
+    width:355px;
+    height:450px
 }
 
 .video-heading{
     margin-bottom:50px;
     margin-left:10%;
-    font-size:50px
+    font-size:20px
+}
+
+.video-text{
+    margin:0 0 0 0;
+    font-weight:bold;
+    font-size:16px
 }
 
 .channel-image{
-    width:500px;
-    height:300px
+    width:250px;
+    height:250px
 }
 
 .button-container{
-    position:absolute;
-    bottom:0
+    position:relative;
+    bottom:0;
 }
 
 .button-video{
-    font-size:25px;
+    font-size:14px;
     margin-right:5px;
     background-color:#FFFFFF;
     border:1px solid #222222;
-    border-radius:8px
 }
 
-.comment{
+.comment{ 
     height:65px;
     background-color:grey;
     border-color:black
