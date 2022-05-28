@@ -1,5 +1,7 @@
+//Packages
 import React from 'react';
 
+//Pagination logic
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
 
@@ -8,7 +10,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   }
  
   return (
-      <nav>
+      <nav style={{backgroundColor:'#6d3088'}}>
         <ul className='justify-content-center pagination'>
             {pageNumbers.map(number => (
             <li key={number} className='page-item'>

@@ -1,5 +1,7 @@
+//Packages
 import React from 'react';
 
+//Pagination Logic
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => { 
   const pageNumbers = [];
 

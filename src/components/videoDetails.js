@@ -1,17 +1,26 @@
+//Packages
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
+//Components
 import Video from './video';
 import Pagination from './paginationVideo'
+//API credentials
 const apiKey = "AIzaSyAdaubdD3jJiYw82FouvAII4DRruqNNduM";
 const apiUrl = "https://www.googleapis.com/youtube/v3";
 
+//To store all the video ids response from playlist api call
 let videoids = []; 
 
+//To get all videos data
 const VideoDetail=(props)=>{
+    //Store video data
     const [vid,setVid] = useState([]);
     //Pagination
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(3);
+    //SearchBar
+    const [term, setTerm] = useState('Enter Video Name');
+
 
     useEffect(() => { 
         async function requestVideo(){
@@ -64,11 +73,10 @@ const VideoDetail=(props)=>{
         requestVideoPlaylist(); 
     },[props.id])    
 
-    const [term, setTerm] = useState('Enter Video Name');
-
-    // Change page
+    //Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
     
+    //Filtering video data based on search term entered by user
     var searchvideo = [];
     if(term === "" || term === "Enter Video Name"){
         searchvideo = vid;
@@ -85,9 +93,10 @@ const VideoDetail=(props)=>{
 
     return(
         <div>
-            <div className='ui container' style={{marginTop:"10px",width:"100%"}}>
+            {/*SearchBar*/}
+            <div className='ui container' style={{marginTop:"2%",width:"100%"}}>
                 <div className="ui form" style={{marginLeft:"9%",width:"85%"}}>
-                    <div className="field" style={{marginTop:"50px"}}>
+                    <div className="field searchbar-container">
                         <input
                             value={term}
                             onChange={(e) => setTerm(e.target.value)}
@@ -97,17 +106,19 @@ const VideoDetail=(props)=>{
                     </div>
                 </div>
             </div>
-            <h1 className='video-heading'>Video Details</h1>
-            <div style={{marginLeft:"3.5%"}} className="four column row">
-                {currentPosts.map((video)=>{
-                    return(
-                        <div>
-                            <Video video={video}/>
-                        </div>
-                    )
-                })}  
+            {/*Loop and print all video component*/}
+            <div>
+                <div style={{marginTop:"2%",marginLeft:"3.5%"}} className="four column row">
+                    {currentPosts.map((video)=>{
+                        return(
+                            <div>
+                                <Video video={video}/>
+                            </div>
+                        )
+                    })}  
+                </div>
             </div>
-
+            {/*To paginate video responses*/}
             <Pagination
                 postsPerPage={postsPerPage}
                 totalPosts={searchvideo.length}

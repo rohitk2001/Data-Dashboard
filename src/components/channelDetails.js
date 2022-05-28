@@ -1,8 +1,11 @@
+//Packages
 import React from 'react';
+//CSS stylesheets
 import './styles.css';
+//To display channel data using Semantic UI Grid
 const ChannelDetails=(props)=>{
         return (
-            <div className='ui segment'>
+            <div style={{height:"260px"}} className='ui segment'>
                 <div className="ui grid">
                     <div className="eight wide column">
                         <div>
