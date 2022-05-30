@@ -1,0 +1,121 @@
+.footer {
+    background: #6a2f85;
+    padding: 70px 0 50px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+}
+
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: -15px;
+    margin-right: -15px;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+
+.footer .footBot {
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.col-12 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+
+.col-sm-4, .col-sm-5, .col-sm-6, .col-sm, .col-12 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.footer .footBotLink {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 25px 0 0;
+}
+
+.footer a {
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.footer .address, .footer ul {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.footer .footBotLink ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0;
+    padding: 15px 0 0;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.footer ul li {
+    padding: 0;
+}
+
+.footer ul.primaryLink a {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 45px;
+}
+
+.footer ul a {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 45px;
+    padding: 10px;
+}
+
+.footer .socialIcons {
+    font-size: 22px;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.footer a {
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}

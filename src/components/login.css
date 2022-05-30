@@ -1,0 +1,133 @@
+.header {
+    background: #ffffff;
+    padding: 20px 0 20px;
+}
+
+.header .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0 75px;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: center;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+}
+
+.logo {
+    margin: 0;
+}
+
+/*Login*/
+.col-50 {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 50%;
+    flex: 1 1 50%;
+    max-width: 50%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.formBoxPad {
+    padding-top: 2%;
+    padding-left: 40px;
+    padding-bottom: 55px;
+    overflow: hidden;
+}
+
+.formSection, .slideRight {
+    -webkit-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.activeSlide {
+    -webkit-animation: slideright 0.5s forwards;
+    animation: slideright 0.5s forwards;
+}
+
+.formBox {
+    background: #ffffff;
+    border-radius: 10px 0 0 10px;
+    -webkit-box-shadow: 10px 10px 40px rgb(0 0 0 / 25%);
+    box-shadow: 10px 10px 40px rgb(0 0 0 / 25%);
+    padding: 25px 40px;
+    color: #3f546c;
+    margin: 0 -14px 0 0;
+    min-height: 300px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.formBoxInner {
+    width: 100%;
+    max-width: 418px;
+    position: relative;
+}
+
+.frmGroup .label {
+    font-size: 16px;
+    color: #3f546c;
+    margin: 0 0 16px;
+    display: block;
+}
+
+.frmControl {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #8d9aa9;
+    border-radius: 7px;
+    padding: 8px 12px;
+    outline: none;
+    color: #575757;
+    font-size: 16px;
+    -webkit-transition: opacity 0.15s linear;
+    transition: opacity 0.15s linear;
+}
+
+.frmGroup .errortext {
+    display: none;
+}
+
+.btnPrimary {
+    display: inline-block;
+    background: #6a2f85;
+    font-size: 18px;
+    color: #ffffff;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 9px 25px 10px;
+    margin-top: 5px;
+}
+
+.btnbetween {
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+.btnPrimary-outline {
+    display: inline-block;
+    background: #ffffff;
+    font-size: 18px;
+    color: #6a2f85;
+    border: 1px solid #6a2f85;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 9px 25px 10px;
+    margin-top: 5px;
+}
+
