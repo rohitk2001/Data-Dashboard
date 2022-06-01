@@ -5,7 +5,7 @@ import axios from 'axios';
 import Video from './video';
 import Pagination from './paginationVideo'
 //API credentials
-const apiKey = "AIzaSyAdaubdD3jJiYw82FouvAII4DRruqNNduM";
+const apiKey = "AIzaSyBnENzjvROf4sgs-hdKu1T9Q3mT344EVKM";
 const apiUrl = "https://www.googleapis.com/youtube/v3";
 
 //To store all the video ids response from playlist api call

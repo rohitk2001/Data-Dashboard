@@ -1,5 +1,5 @@
 //Packages
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 //CSS stylesheets
 import './login.css';
 //To display channel data using Semantic UI Grid
@@ -11,8 +11,8 @@ const Login =(props)=>{
         <div>
             <header className='header'>
                 <div className='container'>
-                    <a href="https://www.speedlabs.in/" className='logo' target="_blank">
-                        <img width="90px" height="66.68px" src="https://practice.speedlabs.in/WebV2Assets/images/logo.svg"/>
+                    <a href="https://www.speedlabs.in/" className='logo' target="_blank" rel="noopener noreferrer">
+                        <img alt="SpeedLabs Logo"width="90px" height="66.68px" src="https://practice.speedlabs.in/WebV2Assets/images/logo.svg"/>
                     </a>
                 </div>
             </header>

@@ -46,9 +46,9 @@ const Footer = () =>{
                         </div>
                         <div className="col-sm col-sm-3 align-self-end d-flex justify-content-end">
                             <p className="socialIcons">  
-                                    <a style={{color:"#ffffff",fontSize:"1.125rem",fontWeight:"700",padding:"0 10px 0 0"}} rel="nofollow" href="https://www.facebook.com/speedlabsindia/" target="_blank"><FaFacebookF/></a> 
-                                    <a style={{color:"#ffffff",fontSize:"1.125rem",fontWeight:"700",padding:"0 10px 0 0"}} rel="nofollow" href="https://twitter.com/SpeedLabs_India" target="_blank"><FaTwitter/></a> 
-                                    <a style={{color:"#ffffff",fontSize:"1.125rem",fontWeight:"700",padding:"0 10px 0 0"}} rel="nofollow" href="https://www.instagram.com/speedlabs.india/" target="_blank"><FaInstagram/></a> 
+                                    <a style={{color:"#ffffff",fontSize:"1.125rem",fontWeight:"700",padding:"0 10px 0 0"}} rel="noopener noreferrer" href="https://www.facebook.com/speedlabsindia/" target="_blank"><FaFacebookF/></a> 
+                                    <a style={{color:"#ffffff",fontSize:"1.125rem",fontWeight:"700",padding:"0 10px 0 0"}} rel="noopener noreferrer" href="https://twitter.com/SpeedLabs_India" target="_blank"><FaTwitter/></a> 
+                                    <a style={{color:"#ffffff",fontSize:"1.125rem",fontWeight:"700",padding:"0 10px 0 0"}} rel="noopener noreferrer" href="https://www.instagram.com/speedlabs.india/" target="_blank"><FaInstagram/></a> 
                         
                             </p>
             

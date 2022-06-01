@@ -1,5 +1,3 @@
-//Packages
-import React from 'react';
 //CSS stylesheets
 import './styles.css';
 //To display channel data using Semantic UI Grid

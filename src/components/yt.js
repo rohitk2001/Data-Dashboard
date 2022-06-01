@@ -8,7 +8,7 @@ import NavBar from './navBar';
 //CSS stylesheets
 import './styles.css'
 //API credentials
-const apiKey = "AIzaSyBDmqUiT8xHSSYEoQv0WCkOS1AqoN8VA2s";
+const apiKey = "AIzaSyBnENzjvROf4sgs-hdKu1T9Q3mT344EVKM";
 const apiUrl = "https://www.googleapis.com/youtube/v3";
 const term = "UCoxIjrCyzbaTnOtZdhwxM7g";
  
@@ -46,11 +46,17 @@ const YT=()=>{
             setThumbnail(thumbnail);
         }
         searchSubmit();
+        /*
+        setInterval(() => {
+            searchSubmit();
+        }, 1000); // 10 min
+        */
     },[])
     //Main stucture of Dashboard
     return (
         <div className='yellow-background'>
             <NavBar/>
+            <iframe style={{marginLeft:"40%"}} height="90px" width="300px" frameborder="0" src={`https://socialcounts.org/youtube-live-subscriber-count/${term}/embed`} allowFullScreen></iframe>
             <div className='purple-background'>
                 <div className='channel-container'>
                     {/*Passing data from API*/}

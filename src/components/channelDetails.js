@@ -19,6 +19,7 @@ const ChannelDetails=(props)=>{
                     <div className="eight wide column">
                         <img className='channel-image' alt="Profile" src={props.thumbnail}/>
                     </div>
+                    
                 </div> 
             </div>
         )

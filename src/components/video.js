@@ -8,7 +8,7 @@ import ReactPlayer from 'react-player/youtube'
 //CSS stylesheet
 import './styles.css'
 //API credentials
-const apiKey = "AIzaSyAdaubdD3jJiYw82FouvAII4DRruqNNduM";
+const apiKey = "AIzaSyBnENzjvROf4sgs-hdKu1T9Q3mT344EVKM";
 
 const Video=(props)=>{
     //Comments
