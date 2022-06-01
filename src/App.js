@@ -9,11 +9,11 @@ import Footer from './components/footer';
 const App=()=>{
     return (
         <div>
-            <Route path="https://speedlabsyt.netlify.app/">
+            <Route path="/">
                 <Login/>
                 <Footer/>
             </Route>
-            <Route path="https://speedlabsyt.netlify.app/yt">
+            <Route path="/yt">
                 <YT/>
             </Route>
         </div>
