@@ -36,7 +36,6 @@ const YT=()=>{
             const viewCount = response.data.items[0].statistics.viewCount;
             const thumbnail = response.data.items[0].snippet.thumbnails.high.url;
             const playlistId = response.data.items[0].contentDetails.relatedPlaylists.uploads;
-    
             setTitle(title);
             setSubscribers(subscriberCount);
             setVideoCount(videoCount);
@@ -56,7 +55,7 @@ const YT=()=>{
     return (
         <div className='yellow-background'>
             <NavBar/>
-            <iframe title={title} style={{marginLeft:"40%"}} height="90px" width="300px" frameborder="0" src={`https://socialcounts.org/youtube-live-subscriber-count/${term}/embed`} allowFullScreen></iframe>
+            <iframe title={title} style={{marginLeft:"40%"}} height="90px" width="300px" frameBorder="0" src={`https://socialcounts.org/youtube-live-subscriber-count/${term}/embed`} allowFullScreen></iframe>
             <div className='purple-background'>
                 <div className='channel-container'>
                     {/*Passing data from API*/}

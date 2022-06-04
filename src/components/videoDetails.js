@@ -4,6 +4,7 @@ import axios from 'axios';
 //Components
 import Video from './video';
 import Pagination from './paginationVideo'
+//import {Row,Col} from 'react-bootstrap';
 //API credentials
 const apiKey = "AIzaSyBnENzjvROf4sgs-hdKu1T9Q3mT344EVKM";
 const apiUrl = "https://www.googleapis.com/youtube/v3";
@@ -108,14 +109,14 @@ const VideoDetail=(props)=>{
             </div>
             {/*Loop and print all video component*/}
             <div>
-                <div style={{marginTop:"2%",marginLeft:"3.5%"}} className="four column row">
-                    {currentPosts.map((video)=>{
-                        return(
-                            <div>
-                                <Video video={video}/>
-                            </div>
-                        )
-                    })}  
+                <div style={{marginTop:"2%",marginLeft:"3.5%"}} className="stackable four column row">
+                            {currentPosts.map((video)=>{
+                                return(
+                                    <div key={video.id} style={{display:"flex"}}>
+                                        <Video video={video}/>
+                                    </div>
+                                )
+                            })}  
                 </div>
             </div>
             {/*To paginate video responses*/}
