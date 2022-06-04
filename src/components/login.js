@@ -2,6 +2,9 @@
 import React,{useState} from 'react';
 //CSS stylesheets
 import './login.css';
+//Components
+import GoogleLogin from './googleLogin';
+import YTanalytics from './ytanalytics';
 //To display channel data using Semantic UI Grid
 const Login =(props)=>{
     const [email,setEmail] = useState('');
@@ -9,6 +12,8 @@ const Login =(props)=>{
 
     return (
         <div>
+            <GoogleLogin/>
+            <YTanalytics/>
             <header className='header'>
                 <div className='container'>
                     <a href="https://www.speedlabs.in/" className='logo' target="_blank" rel="noopener noreferrer">
