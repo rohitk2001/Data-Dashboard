@@ -28,7 +28,7 @@ const Login =(props)=>{
                                     <form className="frmGroup">
                                         <h2>Login</h2>
                                         <label className="label">Mobile Number / Email address</label>
-                                        <input name="TextBoxLogin" type="text" id="TextBoxLogin" autocomplete="off" className="frmControl" aria-describedby="emailHelp" placeholder=" " 
+                                        <input name="TextBoxLogin" type="text" id="TextBoxLogin" autoComplete="off" className="frmControl" aria-describedby="emailHelp" placeholder=" " 
                                             value={email}
                                             onChange={(e) => {setEmail(e.target.value);console.log(email)}}
                                             onClick={(e) => setEmail("")}
@@ -36,7 +36,7 @@ const Login =(props)=>{
                                         <br/>
                                         <br/>
                                         <label className="label">Password</label>
-                                        <input name="TextBoxLogin" type="password" id="TextBoxLogin" autocomplete="off" className="frmControl" aria-describedby="emailHelp" placeholder=" " 
+                                        <input name="TextBoxLogin" type="password" id="TextBoxLogin" autoComplete="off" className="frmControl" aria-describedby="emailHelp" placeholder=" " 
                                             value={password}
                                             onChange={(e) => {setPassword(e.target.value);console.log(password)}}
                                             onClick={(e) => setPassword("")}

@@ -1,0 +1,9 @@
+Video Data
+-> GRID,CARDS,PAGINATION
+Viewer Data
+->4 Pie Chart(Views%,AvgView Duration,Avg%Viewed)
+Subscription Data
+->Pie Chart/Bar Chart(Status-3, Source-3) or Doughnut Chart
+->Line Chart(Date Wise Subscription Status,Views line with two colors)
+Traffic Data
+-> Table
