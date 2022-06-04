@@ -11,7 +11,7 @@ const YTanalytics=()=>{
                   function(err) { console.error("Error signing in", err); });
       }
       function loadClient() {
-        gapi.client.setApiKey("AIzaSyA9gmmtr0mn6gkKWpEr0XqR1zIG8noW34k");
+        //gapi.client.setApiKey("AIzaSyA9gmmtr0mn6gkKWpEr0XqR1zIG8noW34k");
         return gapi.client.load("https://youtubeanalytics.googleapis.com/$discovery/rest?version=v2")
             .then(function() { console.log("GAPI client loaded for API"); },
                   function(err) { console.error("Error loading GAPI client for API", err); });
