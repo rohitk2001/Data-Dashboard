@@ -9,8 +9,11 @@ const GoogleLogin=()=>{
     const [user,setUser] = useState({});
 
     async function handleCallbackResponse(response){
+        
+        var userObject = jwt_decode(response.credential);
+        console.log(userObject);
         //console.log("Encoded JWT ID TOKEN" + response.credential);
-        //console.log(response);
+        console.log(response);
         var options = {
             method: 'POST',
             url: 'https://speedlabsyt.netlify.app/oauth/token',
@@ -30,11 +33,7 @@ const GoogleLogin=()=>{
             console.error(error);
           });
 
-
-
-        /*var userObject = jwt_decode(response.credential);
-        //console.log(userObject);
-        setUser(userObject);
+        /*setUser(userObject);
         document.getElementById("signInDiv").hidden=true;
         const url = `https://youtubeanalytics.googleapis.com/v2/reports?dimensions=day&endDate=2022-01-20&ids=UCoxIjrCyzbaTnOtZdhwxM7g&metrics=views&startDate=2021-01-20&key=AIzaSyA9gmmtr0mn6gkKWpEr0XqR1zIG8noW34k`;
         const oauthid = response.credential;
