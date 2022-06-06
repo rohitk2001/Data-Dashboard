@@ -12,7 +12,7 @@ const GoogleLogin=()=>{
         setUser(userObject);
         document.getElementById("signInDiv").hidden=true;
         const url = `https://youtubeanalytics.googleapis.com/v2/reports?dimensions=day&endDate=2022-01-20&ids=UCoxIjrCyzbaTnOtZdhwxM7g&metrics=views&startDate=2021-01-20&key=AIzaSyA9gmmtr0mn6gkKWpEr0XqR1zIG8noW34k`;
-        const oauthid = '188479363160-034pjt294p5v01j4v2ah0prtnlr2l3ct.apps.googleusercontent.com';
+        const oauthid = response.credential;
         const res = await axios.get(url,{
             headers: {
                 Authorization: `Bearer ${oauthid}`,
