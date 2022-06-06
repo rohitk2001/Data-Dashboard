@@ -34,7 +34,7 @@ const YTanalytics=()=>{
           
     useEffect(()=>{
         gapi.load("client:auth2", function() {
-            gapi.auth2.init({client_id: "188479363160-cjd14nrqvk8l0uu8114kbdhlprnd0fo6.apps.googleusercontent.com"});
+            gapi.auth2.init({client_id: "188479363160-034pjt294p5v01j4v2ah0prtnlr2l3ct.apps.googleusercontent.com"});
           });
     },[]);
     return (
