@@ -7,7 +7,8 @@ const GoogleLogin=()=>{
 
     async function handleCallbackResponse(response){
         //console.log("Encoded JWT ID TOKEN" + response.credential);
-        console.log(response.credential);
+        console.log(response);
+        
         var userObject = jwt_decode(response.credential);
         //console.log(userObject);
         setUser(userObject);
