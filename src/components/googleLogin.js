@@ -2,7 +2,7 @@
 import React,{useEffect,useState} from 'react';
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
-const {google} = require('googleapis');
+import google from 'googleapis';
 
 
 const GoogleLogin=()=>{
