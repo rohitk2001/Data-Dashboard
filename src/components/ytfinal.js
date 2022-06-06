@@ -14,17 +14,17 @@ const GoogleLogin=()=>{
         //console.log(userObject);
         //console.log(response.credential);
 
-        const oauth2Client = new google.auth.OAuth2(
-            '188479363160-034pjt294p5v01j4v2ah0prtnlr2l3ct.apps.googleusercontent.com',
-            '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',
-            'https://speedlabsyt.netlify.app/'
+        /*const oauth2Client = new google.auth.OAuth2(
+            YOUR_CLIENT_ID,
+            YOUR_CLIENT_SECRET,
+            YOUR_REDIRECT_URL
         );
 
         let q = response.credential;
         // Get access and refresh tokens (if access_type is offline)
         let { tokens } = await oauth2Client.getToken(q.code);
-        //oauth2Client.setCredentials(tokens);
-        console.log(tokens);
+        oauth2Client.setCredentials(tokens);*/
+
 
         /*var axios = require("axios").default;
 
@@ -46,10 +46,10 @@ const GoogleLogin=()=>{
             console.error(error);
         });*/
 
-        //setUser(userObject);
+        /*setUser(userObject);
         document.getElementById("signInDiv").hidden=true;
         const url = `https://youtubeanalytics.googleapis.com/v2/reports?dimensions=day&endDate=2022-01-20&ids=UCoxIjrCyzbaTnOtZdhwxM7g&metrics=views&startDate=2021-01-20&key=AIzaSyA9gmmtr0mn6gkKWpEr0XqR1zIG8noW34k`;
-        const oauthid = tokens.access_token;
+        const oauthid = response.credential;
         const res = await axios.get(url,{
             headers: {
                 Authorization: `Bearer ${oauthid}`,
@@ -57,7 +57,7 @@ const GoogleLogin=()=>{
                 //Authorization: 'Bearer ' + token //the token is a variable which holds the token
               }
         });
-        console.log(res);
+        console.log(res);*/
     }
 
     function handleSignOut(event){
