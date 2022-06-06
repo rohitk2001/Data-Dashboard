@@ -12,8 +12,8 @@ const Login =(props)=>{
 
     return (
         <div>
-            <GoogleLogin/>
-            <YTanalytics/>
+            {/*<GoogleLogin/>
+            <YTanalytics/>*/}
             <header className='header'>
                 <div className='container'>
                     <a href="https://www.speedlabs.in/" className='logo' target="_blank" rel="noopener noreferrer">
