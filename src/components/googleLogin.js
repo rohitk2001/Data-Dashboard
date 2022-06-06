@@ -2,14 +2,37 @@
 import React,{useEffect,useState} from 'react';
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
+
+
+
 const GoogleLogin=()=>{
     const [user,setUser] = useState({});
 
     async function handleCallbackResponse(response){
         //console.log("Encoded JWT ID TOKEN" + response.credential);
-        console.log(response);
-        
-        var userObject = jwt_decode(response.credential);
+        //console.log(response);
+        var options = {
+            method: 'POST',
+            url: 'https://speedlabsyt.netlify.app/oauth/token',
+            headers: {'content-type': 'application/x-www-form-urlencoded'},
+            data: {
+              grant_type: 'authorization_code',
+              client_id: '188479363160-034pjt294p5v01j4v2ah0prtnlr2l3ct.apps.googleusercontent.com',
+              client_secret: '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',
+              code: 'response.credential',
+              redirect_uri: 'https://speedlabsyt.netlify.app/'
+            }
+          };
+          
+          axios.request(options).then(function (response) {
+            console.log(response.data);
+          }).catch(function (error) {
+            console.error(error);
+          });
+
+
+
+        /*var userObject = jwt_decode(response.credential);
         //console.log(userObject);
         setUser(userObject);
         document.getElementById("signInDiv").hidden=true;
@@ -22,7 +45,7 @@ const GoogleLogin=()=>{
                 //Authorization: 'Bearer ' + token //the token is a variable which holds the token
               }
         });
-        console.log(res);
+        console.log(res);*/
     }
 
     function handleSignOut(event){
