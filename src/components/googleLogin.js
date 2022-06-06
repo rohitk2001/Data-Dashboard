@@ -7,8 +7,9 @@ const GoogleLogin=()=>{
 
     async function handleCallbackResponse(response){
         //console.log("Encoded JWT ID TOKEN" + response.credential);
+        console.log(response);
         var userObject = jwt_decode(response.credential);
-        console.log(userObject);
+        //console.log(userObject);
         setUser(userObject);
         document.getElementById("signInDiv").hidden=true;
         const url = `https://youtubeanalytics.googleapis.com/v2/reports?dimensions=day&endDate=2022-01-20&ids=UCoxIjrCyzbaTnOtZdhwxM7g&metrics=views&startDate=2021-01-20&key=AIzaSyA9gmmtr0mn6gkKWpEr0XqR1zIG8noW34k`;
